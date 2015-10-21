@@ -79,8 +79,8 @@ app.controller("loginCtrl", ["$scope", "$location", "Auth",
     function($scope, $location, Auth) {
         
         // temporary email and password placeholder
-        $scope.email = "admin@mydomain.com";
-        $scope.password = "password";
+        $scope.email = "rbcmobiletech@gmail.com";
+        $scope.password = "qwer1234";
         
         /**
          * Login into app and redirect to result page
