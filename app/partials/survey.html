@@ -9,7 +9,7 @@
     <!-- success information/alert -->
     <div class="alert alert-success alert-dismissable" ng-show="successInfo">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thank you for your feedback!</strong>.
+        <strong>Thank you for completing the survey!</strong>.
     </div>
     
 </div>
@@ -21,21 +21,21 @@
             
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Survey Questions</h4>
+                <h4 class="modal-title">GLP Questions Here</h4>
             </div>
             
             <div class="modal-body">
                 
                 <!-- input box -->
                 <div class="form-group">
-                    <label>Name (Input Box)</label>
+                    <label>Name</label>
                     <input type="text" class="form-control" name="name" ng-model="formData.name">
                 </div>
                 
                 <!--radio buttons -->
                 <div>
-                    <label>Your Age? (Radio Buttons)</label>
-                    <div class="form-group">
+                    <label>Your Age?</label>
+                    <div class="form-group">    
                         <div class="radio">
                             <label>
                                 <input type="radio" name="age" value="30-" ng-model="formData.age">
@@ -52,26 +52,26 @@
                 </div>
                 
                 <!-- multiSelect checkboxes -->
-                <label>Favorite Colors (MultiSelect Checkboxes)</label>
+                <label>Experience:</label>
                 <div class="form-group">
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.red"> Red
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.finance"> Finance
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.blue"> Blue
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.accounting"> Accounting
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.green"> Green
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.technology"> Technology
                     </label>
                 </div>                
                 
                 <!-- toggle choice -->
                 <div>
-                    <label>Buy Me Lunch? (Toggle Choice)</label>
+                    <label>Do you desire international experience?</label>
                     <div class="form-group">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary" ng-model="formData.lunch" btn-radio=true>YES</button>
-                            <button type="button" class="btn btn-primary" ng-model="formData.lunch" btn-radio=false>NO</button>
+                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=true>YES</button>
+                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=false>NO</button>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <!-- star rating -->
                 <div>
                     <label>
-                        How likely would you be to recommend this application to a friend or colleague? (Star Rating)<br />
+                        How important is _______________ to you?<br />
                         <small>(0 is not at all likely, 10 is extremely likely)</small>
                     </label>
                     <div class="form-group">
@@ -89,7 +89,7 @@
                 
                 <!-- textarea -->
                 <div>
-                    <label>Comments/Suggestions (Textarea)</label>
+                    <label>Comments/Suggestions</label>
                     <div class="form-group">
                         <textarea class="form-control" rows="2" ng-model="formData.comment"></textarea>
                     </div>

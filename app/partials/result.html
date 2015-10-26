@@ -7,8 +7,8 @@
             <th>Time</th>
             <th>Name</th>
             <th>Age</th>
-            <th>Colors</th>
-            <th>Lunch?</th>
+            <th>Experience</th>
+            <th>International</th>
             <th>Rating</th>
             <th>Comment</th>
         </tr>
@@ -22,13 +22,13 @@
                 <span ng-if = "result.age === '30+'">30 and above</span>
             </td>
             <td>
-                <span ng-if = "result.colors.red">Red</span>
-                <span ng-if = "result.colors.blue">Blue</span>
-                <span ng-if = "result.colors.green">Green</span>
+                <span ng-if = "result.colors.finance">Finance</span>
+                <span ng-if = "result.colors.accounting">Accounting</span>
+                <span ng-if = "result.colors.technology">Technology</span>
             </td>
             <td>
-                <span ng-if = "result.lunch">Yes</span>
-                <span ng-if = "!result.lunch">No</span>
+                <span ng-if = "result.international">Yes</span>
+                <span ng-if = "!result.international">No</span>
             </td>
             <td>{{result.rating}} Stars</td>
             <td>{{result.comment}}</td>

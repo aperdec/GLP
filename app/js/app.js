@@ -23,6 +23,29 @@ app.config(["$routeProvider",
             controller: "loginCtrl"
         });
 
+        $routeProvider.when("/home", {
+            templateUrl: "partials/quiz.html",
+            controller: "quizCtrl"
+        });
+
+        $routeProvider.when("/review", {
+            templateUrl: "partials/review.html",
+            controller: "reviewCtrl"
+        });
+
+        $routeProvider.when("/login", {
+            templateUrl: "partials/result.html",
+            controller: "quizCtrl"
+        });
+
+        $routeProvider.when("/contact", {
+            templateUrl: "contact.html",
+            controller: "quizCtrl"
+        });
+
+
+
+
         $routeProvider.when("/result", {
             templateUrl: "partials/result.html",
             controller: "resultCtrl",

@@ -30,11 +30,11 @@ app.controller("surveyCtrl", ["$scope", "FBURL", "$firebaseArray",
             "name": "Your Name",
             "age": "30-",
             "colors": {
-                "red": false,
-                "blue": true,
-                "green": false
+                "finance": false,
+                "accounting": false,
+                "technology": false
             },
-            "lunch": true,
+            "international": true,
             "rating": 5,
             "comment": "Thank you.",
             "timestamp": $scope.timestamp
