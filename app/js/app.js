@@ -33,11 +33,6 @@ app.config(["$routeProvider",
             controller: "reviewCtrl"
         });
 
-        $routeProvider.when("/login", {
-            templateUrl: "partials/result.html",
-            controller: "quizCtrl"
-        });
-
         $routeProvider.when("/contact", {
             templateUrl: "contact.html",
             controller: "quizCtrl"
