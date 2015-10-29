@@ -4,6 +4,13 @@
     margin: 16px 0;
 }
 
+.modal .modal-dialog {
+  width: 90%;
+}
+.modal .modal-body {
+  overflow-y: auto;
+}
+
 /* star rating */
 .rating{
     color: #3276b1;

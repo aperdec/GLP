@@ -25,76 +25,70 @@
             </div>
             
             <div class="modal-body">
+
+                
                 
                 <!-- input box -->
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" name="name" ng-model="formData.name">
-                </div>
-                
-                <!--radio buttons -->
-                <div>
-                    <label>Your Age?</label>
-                    <div class="form-group">    
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="age" value="30-" ng-model="formData.age">
-                                Less than 30
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="age" value="30+" ng-model="formData.age">
-                                30 and above
-                            </label>
-                        </div>
+                <div id="quiz" ng-controller="quizCtrl">
+    <h1 class="center">{{quiz.name}}</h1>
+    <hr />
+    <div ng-show="mode=='quiz'">
+        <div ng-repeat="question in filteredQuestions">
+            <div class="label label-warning">Question {{currentPage}} of {{totalItems}}.</div>
+            <div class="question">
+                <h2>{{currentPage}}. {{question.Name}}</h2>
+                <div class="options">
+                    <div ng-repeat="Option in question.Options">
+                        <label for="{{Option.Id}}" ng-click="onSelect(Option);">
+                            <input id="{{Option.Id}}" type="checkbox" ng-model="Option.Selected" />
+                            {{Option.Name}}
+                        </label>
                     </div>
                 </div>
-                
-                <!-- multiSelect checkboxes -->
-                <label>Experience:</label>
-                <div class="form-group">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.finance"> Finance
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.accounting"> Accounting
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.technology"> Technology
-                    </label>
-                </div>                
-                
-                <!-- toggle choice -->
-                <div>
-                    <label>Do you desire international experience?</label>
-                    <div class="form-group">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=true>YES</button>
-                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=false>NO</button>
-                        </div>
+            </div>
+        </div>
+        <hr />
+        <div class="quizNav">
+            <div>
+                <button class="btn btn-default" ng-click="goTo(1);">First</button>
+                <button class="btn btn-default" ng-click="goTo(currentPage - 1);">Prev</button>
+                <button class="btn btn-default" ng-click="goTo(currentPage + 1);">Next</button>
+                <button class="btn btn-default" ng-click="goTo(totalItems);">Last</button>
+            </div>
+            <br />
+            <pagination direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
+    </div>
+    <div class="review" ng-show="mode=='review'">
+        <div ng-repeat="question in questions">
+            <div ng-click="goTo($index + 1)" class="{{ isAnswered($index) == 'Answered'? 'answered': 'not-answered' }}">{{$index + 1}}. {{ isAnswered($index) }}</div>
+        </div>
+    </div>
+    <div class="result" ng-show="mode=='result'">
+        <h2>Quiz Result</h2>
+        <div ng-repeat="question in questions">
+            <div class="result-question">
+                <h3>{{$index + 1}}. {{question.Name}}</h3>
+                <div class="result-options">
+                    <div ng-repeat="Option in question.Options">
+                        <label for="{{Option.Id}}" ng-click="onSelect(Option);" class="{{ (Option.Selected == Option.IsAnswer)? 'result-correct': 'result-incorrect' }}">
+                            <input id="{{Option.Id}}" type="checkbox" disabled="disabled" ng-model="Option.Selected" />
+                            {{Option.Name}}
+                        </label>
                     </div>
                 </div>
-                
-                <!-- star rating -->
-                <div>
-                    <label>
-                        How important is _______________ to you?<br />
-                        <small>(0 is not at all likely, 10 is extremely likely)</small>
-                    </label>
-                    <div class="form-group">
-                        <div star-rating rating-value="formData.rating" max="10" on-rating-selected="updateRating(rating)" readonly="false"></div>
-                    </div>
-                </div>
-                
-                <!-- textarea -->
-                <div>
-                    <label>Comments/Suggestions</label>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="2" ng-model="formData.comment"></textarea>
-                    </div>
-                </div>
-
+                <h4 class="alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</h4>
+            </div>
+        </div>
+        <h4 class="alert alert-info text-center">You may close this window now.</h4>
+    </div>
+   <!--  <hr />
+    <div class="" ng-show="mode!='result'">
+        <button class="btn btn-default" ng-click="mode = 'quiz'">Quiz</button> 
+        <button class="btn btn-default" ng-click="mode = 'review'">Review</button> 
+        <button class="btn btn-default" ng-click="onSubmit();">Submit Quiz</button>
+    </div> -->
+</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
