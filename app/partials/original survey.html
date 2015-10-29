@@ -1,0 +1,64 @@
+ <!-- input box -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" ng-model="formData.name">
+                </div>
+                
+                <!--radio buttons -->
+                <div>
+                    <label>Your Age?</label>
+                    <div class="form-group">    
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="age" value="30-" ng-model="formData.age">
+                                Less than 30
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="age" value="30+" ng-model="formData.age">
+                                30 and above
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- multiSelect checkboxes -->
+                <label>Experience:</label>
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.finance"> Finance
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.accounting"> Accounting
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.technology"> Technology
+                    </label>
+                </div>                
+                
+                <!-- toggle choice -->
+                <div>
+                    <label>Do you desire international experience?</label>
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=true>YES</button>
+                            <button type="button" class="btn btn-primary" ng-model="formData.international" btn-radio=false>NO</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- star rating -->
+                <div>
+                    <label>
+                        How important is _______________ to you?<br />
+                        <small>(0 is not at all likely, 10 is extremely likely)</small>
+                    </label>
+                    <div class="form-group">
+                        <div star-rating rating-value="formData.rating" max="10" on-rating-selected="updateRating(rating)" readonly="false"></div>
+                        
+     <!-- textarea -->
+                <div>
+                    <label>Comments/Suggestions</label>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2" ng-model="formData.comment"></textarea>
